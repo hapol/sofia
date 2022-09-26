@@ -47,7 +47,7 @@ ${R3BSOF_SOURCE_DIR}/sofana
 include_directories( ${INCLUDE_DIRECTORIES})
 include_directories(SYSTEM ${SYSTEM_INCLUDE_DIRECTORIES})
 
-set(LINK_DIRECTORIES ${ROOT_LIBRARY_DIR} ${FAIRROOT_LIBRARY_DIR} ) 
+set(LINK_DIRECTORIES ${ROOT_LIBRARY_DIR} ${FAIRROOT_LIBRARY_DIR} )
 
 link_directories( ${LINK_DIRECTORIES})
 
@@ -81,6 +81,6 @@ CHANGE_FILE_EXTENSION(*.cxx *.h HEADERS "${SRCS}")
 set(LINKDEF SofOnlineLinkDef.h)
 set(LIBRARY_NAME R3BSofOnline)
 set(DEPENDENCIES
-    Spectrum Base FairTools R3BBase R3BData R3BTracking)
+    Spectrum Base FairTools R3BBase R3BData R3BTracking R3BSsd R3BCalifa)
 
 GENERATE_LIBRARY()
