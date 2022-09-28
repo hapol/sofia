@@ -303,11 +303,17 @@ void R3BSofFrsAnalysis::Exec(Option_t* option)
             i_s8cave = i;
         }
         if (isnan(tof) || tof < 0)
+        {
             continue;
-        beta.push_back(fPathLength[i] / (tof + fTofOffset[i]));
+        }
+        else
+        {
+            beta.push_back(fPathLength[i] / (tof + fTofOffset[i]));
+        }
     }
     // Velocity correlation conditions
-    if (fBetaCorr && beta.at(i_s2cave) > 0. && beta.at(i_s8cave) > 0. &&
+    if (fBetaCorr && i_s2cave >=0 && i_s8cave>=0 &&
+        beta.at(i_s2cave) > 0. && beta.at(i_s8cave) > 0. &&
         TMath::Abs(beta.at(i_s2cave) - beta.at(i_s8cave)) < 0.01)
         beta.at(fNbTof) = beta.at(i_s2cave);
     //
